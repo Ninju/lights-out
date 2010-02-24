@@ -11,7 +11,7 @@ main :: IO ()
 main = newGame
 
 newGame :: IO ()
-newGame = do grid <- newGrid 10 3
+newGame = do grid <- newGrid 5 5
              play grid
 
 newGrid :: Int -> Int -> IO Grid
