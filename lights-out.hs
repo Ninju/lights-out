@@ -23,7 +23,7 @@ height :: Grid -> Int
 height = length
 
 isGameOver :: Grid -> Bool
-isGameOver grid = all and grid || not (all or grid)
+isGameOver grid = all and grid || not (any or grid)
 
 prompt :: String
 prompt = "> "
