@@ -42,12 +42,12 @@ play grid = do clearScreen
                putStr prompt
                input <- getLine
                case input of
-                 "h"            -> help >> play grid
-                 ('t':(' ':xy)) -> toggle xy grid >>= \g -> play g
-                 "q"            -> quit
-                 "s"            -> play (solvedGrid (width grid) (height grid))
-                 "n"            -> newGame
-                 _              -> play grid
+                 "h"      -> help >> play grid
+                 ('t':xy) -> toggle xy grid >>= \g -> play g
+                 "q"      -> quit
+                 "s"      -> play (solvedGrid (width grid) (height grid))
+                 "n"      -> newGame
+                 _        -> play grid
 
 clearScreen :: IO ()
 clearScreen = putStrLn "\ESC[2J\ESC[H"
