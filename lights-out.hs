@@ -1,7 +1,8 @@
 module LightsOut where
+import Data.List (intercalate)
 import System.Random (randomRIO)
 import Control.Monad (replicateM)
-import Text.Regex.Posix
+import Text.Regex.Posix ((=~))
 
 type Light = Bool
 type Grid = [[Light]]
@@ -10,7 +11,7 @@ main :: IO ()
 main = newGame
 
 newGame :: IO ()
-newGame = do grid <- newGrid 5 5
+newGame = do grid <- newGrid 10 3
              play grid
 
 newGrid :: Int -> Int -> IO Grid
@@ -123,8 +124,13 @@ ansiYellow = ansiColour "33"
 ansiBlue :: String -> String
 ansiBlue   = ansiColour "34"
 
-printGrid :: Grid -> IO ()
-printGrid xs = putStrLn $ (unlines .  map (concatMap lightAsString)) xs
+--printGrid :: Grid -> IO ()
+--printGrid xs = putStrLn $ (unlines .  map (concatMap lightAsString)) xs
+--
+printGrid xs = do putStrLn $ "   " ++ (intercalate "  " $ map show [0..(width xs - 1)])
+                  let lights = map (concatMap lightAsString) xs
+                      ys     = map ((++ " ") . show) [0..(height xs - 1)]
+                  putStrLn $ unlines $ zipWith (flip (++)) lights ys
 
 lightAsString :: Light -> String
 lightAsString light | isOn light = ansiYellow "[=]"
