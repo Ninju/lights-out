@@ -1,0 +1,18 @@
+= Instructions
+
+Compile:
+  ghc --make lights-out.hs
+
+Or you can run it interactively using ghci
+
+  ghci lights-out.hs
+
+OR
+
+  ghci
+  > :l lights-out
+
+Once at the prompt, simply run the main function:
+
+  *Main> main
+

@@ -1,4 +1,4 @@
-module LightsOut where
+module Main where
 import Data.List (intercalate)
 import System.Random (randomRIO)
 import Control.Monad (replicateM)

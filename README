@@ -1,7 +1,0 @@
-Lights out in Haskell. For some reason it won't compile, so I need to figure out why it is doing that. In the mean time you can run it by going into interactive mode:
-
-ghci lights-out.hs
-
-At the prompt "LightsOut>" type "main" and press enter and it will launch you into the game.
-
-Have fun.
